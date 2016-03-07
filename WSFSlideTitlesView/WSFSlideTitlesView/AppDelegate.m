@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "WSFViewController.h"
+#import "WSFSlideTitlesViewController.h"
 
 @interface AppDelegate ()
 
@@ -26,8 +26,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window.rootViewController = [[WSFViewController alloc] init];
-
+    WSFSlideTitlesViewController *slideVC = [[WSFSlideTitlesViewController alloc] init];
+    slideVC.title = @"WSFSlideTitlesView";
+    slideVC.view.backgroundColor = [UIColor orangeColor];
+    
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:slideVC];
+    
+    self.window.rootViewController = navVC;
+    
     return YES;
 }
 

@@ -7,15 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		375CCF331C8DD32400393863 /* WSFSlideTitlesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 375CCF321C8DD32400393863 /* WSFSlideTitlesViewController.m */; };
 		379142631C8D805000448FE0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 379142621C8D805000448FE0 /* main.m */; };
 		379142661C8D805000448FE0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 379142651C8D805000448FE0 /* AppDelegate.m */; };
 		3791426E1C8D805000448FE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3791426D1C8D805000448FE0 /* Assets.xcassets */; };
 		379142711C8D805000448FE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3791426F1C8D805000448FE0 /* LaunchScreen.storyboard */; };
-		3791427A1C8D817400448FE0 /* WSFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379142791C8D817400448FE0 /* WSFViewController.m */; };
 		3791427D1C8D81AA00448FE0 /* WSFSlideTitlesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3791427C1C8D81AA00448FE0 /* WSFSlideTitlesView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		375CCF311C8DD32400393863 /* WSFSlideTitlesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSFSlideTitlesViewController.h; sourceTree = "<group>"; };
+		375CCF321C8DD32400393863 /* WSFSlideTitlesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSFSlideTitlesViewController.m; sourceTree = "<group>"; };
 		3791425E1C8D805000448FE0 /* WSFSlideTitlesView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WSFSlideTitlesView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		379142621C8D805000448FE0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		379142641C8D805000448FE0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -23,8 +25,6 @@
 		3791426D1C8D805000448FE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		379142701C8D805000448FE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		379142721C8D805000448FE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		379142781C8D817400448FE0 /* WSFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSFViewController.h; sourceTree = "<group>"; };
-		379142791C8D817400448FE0 /* WSFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSFViewController.m; sourceTree = "<group>"; };
 		3791427B1C8D81AA00448FE0 /* WSFSlideTitlesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSFSlideTitlesView.h; sourceTree = "<group>"; };
 		3791427C1C8D81AA00448FE0 /* WSFSlideTitlesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSFSlideTitlesView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,8 +61,8 @@
 			children = (
 				379142641C8D805000448FE0 /* AppDelegate.h */,
 				379142651C8D805000448FE0 /* AppDelegate.m */,
-				379142781C8D817400448FE0 /* WSFViewController.h */,
-				379142791C8D817400448FE0 /* WSFViewController.m */,
+				375CCF311C8DD32400393863 /* WSFSlideTitlesViewController.h */,
+				375CCF321C8DD32400393863 /* WSFSlideTitlesViewController.m */,
 				3791427B1C8D81AA00448FE0 /* WSFSlideTitlesView.h */,
 				3791427C1C8D81AA00448FE0 /* WSFSlideTitlesView.m */,
 				3791426D1C8D805000448FE0 /* Assets.xcassets */,
@@ -152,7 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3791427D1C8D81AA00448FE0 /* WSFSlideTitlesView.m in Sources */,
-				3791427A1C8D817400448FE0 /* WSFViewController.m in Sources */,
+				375CCF331C8DD32400393863 /* WSFSlideTitlesViewController.m in Sources */,
 				379142661C8D805000448FE0 /* AppDelegate.m in Sources */,
 				379142631C8D805000448FE0 /* main.m in Sources */,
 			);
@@ -293,6 +293,7 @@
 				379142771C8D805000448FE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,11 +8,35 @@
 
 #import <UIKit/UIKit.h>
 
+@class WSFSlideTitlesView;
+@class WSFSlideTitlesViewSetting;
+
+@protocol WSFSlideTitlesViewDelegate <NSObject>
+
+@optional
+- (void)slideTitlesView:(WSFSlideTitlesView *)titlesView didSelectButton:(UIButton *)button;
+
+@end
+
 @interface WSFSlideTitlesView : UIView
 
-@property (nonatomic, strong) NSArray *titlesArr;
+@property (nonatomic, weak) id<WSFSlideTitlesViewDelegate> delegate;
 
-@property (nonatomic, assign) CGFloat overallWidth;
-@property (nonatomic, assign) CGFloat overallHeight;
++ (instancetype)slideTitlesViewWithSetting:(WSFSlideTitlesViewSetting *)setting;
+- (instancetype)initWithSetting:(WSFSlideTitlesViewSetting *)setting;
+
+@end
+
+@interface WSFSlideTitlesViewSetting : NSObject
+
+@property (nonatomic, strong) NSArray *titlesArr;
+@property (nonatomic, strong) NSArray *selectedTitlesArr;
+
+@property (nonatomic, assign) CGRect frame;
+
+@property (nonatomic, strong) UIColor *backgroundColor;
+
+@property (nonatomic, strong) UIColor *textColor;
+@property (nonatomic, strong) UIColor *selectedTextColor;
 
 @end
