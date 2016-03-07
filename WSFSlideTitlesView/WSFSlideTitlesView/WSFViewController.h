@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  WSFViewController.h
 //  WSFSlideTitlesView
 //
 //  Created by WangShengFeng on 3/7/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface WSFViewController : UIViewController
 
 @end
-
