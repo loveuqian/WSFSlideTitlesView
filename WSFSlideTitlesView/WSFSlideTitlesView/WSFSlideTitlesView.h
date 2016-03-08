@@ -39,4 +39,7 @@
 @property (nonatomic, strong) UIColor *textColor;
 @property (nonatomic, strong) UIColor *selectedTextColor;
 
+@property (nonatomic, assign) CGFloat textFontSize;
+@property (nonatomic, assign) CGFloat selectedTextFontSize;
+
 @end

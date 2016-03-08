@@ -34,14 +34,32 @@
         CGFloat titlesHeight = setting.frame.size.height;
         for (int i = 0; i < titlesCount; ++i) {
             UIButton *titlesButton = [UIButton buttonWithType:UIButtonTypeSystem];
-            [titlesButton setTitle:setting.titlesArr[i] forState:UIControlStateNormal];
-            [titlesButton setTitle:setting.selectedTitlesArr[i] forState:UIControlStateSelected];
-            [titlesButton setTitleColor:setting.textColor forState:UIControlStateNormal];
-            [titlesButton setTitleColor:setting.selectedTextColor forState:UIControlStateSelected];
+            
+            // 普通状态
+            NSDictionary *attDict = @{
+                                      NSFontAttributeName : [UIFont systemFontOfSize:setting.textFontSize],
+                                      NSForegroundColorAttributeName : setting.textColor,
+                                      };
+            NSAttributedString *attStr =
+            [[NSAttributedString alloc] initWithString:setting.titlesArr[i] attributes:attDict];
+            
+            // 选中状态
+            NSDictionary *selectedAttDict = @{
+                                              NSFontAttributeName : [UIFont systemFontOfSize:setting.textFontSize],
+                                              NSForegroundColorAttributeName : setting.selectedTextColor,
+                                              };
+            NSAttributedString *selectedAttStr =
+            [[NSAttributedString alloc] initWithString:setting.selectedTitlesArr[i] attributes:selectedAttDict];
+            
+            [titlesButton setAttributedTitle:attStr forState:UIControlStateNormal];
+            [titlesButton setAttributedTitle:selectedAttStr forState:UIControlStateSelected];
+            
+            titlesButton.frame = CGRectMake(i * titlesWidth, 0, titlesWidth, titlesHeight);
+            
             [titlesButton addTarget:setting
                              action:@selector(titlesBtnClick:)
                    forControlEvents:UIControlEventTouchUpInside];
-            titlesButton.frame = CGRectMake(i * titlesWidth, 0, titlesWidth, titlesHeight);
+            
             [self addSubview:titlesButton];
             
             // 点击第一个按钮
@@ -57,28 +75,20 @@
 {
     {
         // 已点击按钮
-        NSString *currentString = [self.selectedButton titleForState:UIControlStateNormal];
-        NSString *toChangeString = [self.selectedButton titleForState:UIControlStateSelected];
-        UIColor *currentColor = [self.selectedButton titleColorForState:UIControlStateNormal];
-        UIColor *toChangeColor = [self.selectedButton titleColorForState:UIControlStateSelected];
+        NSAttributedString *currentStr = [self.selectedButton attributedTitleForState:UIControlStateNormal];
+        NSAttributedString *toChangeStr = [self.selectedButton attributedTitleForState:UIControlStateSelected];
         
-        [self.selectedButton setTitle:toChangeString forState:UIControlStateNormal];
-        [self.selectedButton setTitle:currentString forState:UIControlStateSelected];
-        [self.selectedButton setTitleColor:toChangeColor forState:UIControlStateNormal];
-        [self.selectedButton setTitleColor:currentColor forState:UIControlStateSelected];
+        [self.selectedButton setAttributedTitle:toChangeStr forState:UIControlStateNormal];
+        [self.selectedButton setAttributedTitle:currentStr forState:UIControlStateSelected];
     }
     
     {
         // 点击按钮
-        NSString *currentString = [button titleForState:UIControlStateNormal];
-        NSString *toChangeString = [button titleForState:UIControlStateSelected];
-        UIColor *currentColor = [button titleColorForState:UIControlStateNormal];
-        UIColor *toChangeColor = [button titleColorForState:UIControlStateSelected];
+        NSAttributedString *currentStr = [button attributedTitleForState:UIControlStateNormal];
+        NSAttributedString *toChangeStr = [button attributedTitleForState:UIControlStateSelected];
         
-        [button setTitle:toChangeString forState:UIControlStateNormal];
-        [button setTitle:currentString forState:UIControlStateSelected];
-        [button setTitleColor:toChangeColor forState:UIControlStateNormal];
-        [button setTitleColor:currentColor forState:UIControlStateSelected];
+        [button setAttributedTitle:toChangeStr forState:UIControlStateNormal];
+        [button setAttributedTitle:currentStr forState:UIControlStateSelected];
     }
     
     // 切换按钮
@@ -124,6 +134,22 @@
         _selectedTextColor = [UIColor orangeColor];
     }
     return _selectedTextColor;
+}
+
+- (CGFloat)textFontSize
+{
+    if (!_textFontSize) {
+        _textFontSize = [UIFont systemFontSize];
+    }
+    return _textFontSize;
+}
+
+- (CGFloat)selectedTextFontSize
+{
+    if (!_selectedTextFontSize) {
+        _selectedTextFontSize = self.textFontSize;
+    }
+    return _selectedTextFontSize;
 }
 
 @end
