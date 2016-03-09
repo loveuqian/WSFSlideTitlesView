@@ -31,7 +31,7 @@
 
 - (void)slideTitlesView:(WSFSlideTitlesView *)titlesView didSelectButton:(UIButton *)button
 {
-    NSLog(@"点击 -%@- 按钮", [button attributedTitleForState:UIControlStateNormal].string);
+//    NSLog(@"点击 -%@- 按钮", [button attributedTitleForState:UIControlStateNormal].string);
 }
 
 @end

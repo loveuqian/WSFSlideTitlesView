@@ -25,6 +25,8 @@
 + (instancetype)slideTitlesViewWithSetting:(WSFSlideTitlesViewSetting *)setting;
 - (instancetype)initWithSetting:(WSFSlideTitlesViewSetting *)setting;
 
+- (void)setlectButtonAtIndex:(NSUInteger)index;
+
 @end
 
 @interface WSFSlideTitlesViewSetting : NSObject
@@ -41,5 +43,14 @@
 
 @property (nonatomic, assign) CGFloat textFontSize;
 @property (nonatomic, assign) CGFloat selectedTextFontSize;
+
+@property (nonatomic, assign) BOOL lineHidden;
+
+@property (nonatomic, assign) CGFloat lineWidth;
+@property (nonatomic, assign) CGFloat lineHeight;
+
+@property (nonatomic, strong) UIColor *lineColor;
+
+@property (nonatomic, assign) CGFloat lineBottomSpace;
 
 @end
