@@ -39,7 +39,7 @@ self.titlesView = titlesView;
         didSelectButton:(UIButton *)button
                 atIndex:(NSUInteger)index
 {
-    NSLog(@"点击 -第%zd个- -%@- 按钮", index, [button attributedTitleForState:UIControlStateNormal].string);
+    NSLog(@"选中 -第%zd个- -%@- 按钮", index, [button attributedTitleForState:UIControlStateNormal].string);
 }
 ```
 
