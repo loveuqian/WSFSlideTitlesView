@@ -45,8 +45,8 @@ self.titlesView = titlesView;
 [self.titlesView selectButtonAtIndex:0];
 ```
 
-## 默认样式
+## 效果展示
 ![](http://ww3.sinaimg.cn/large/0060lm7Tgw1f1r1lkdim5g30fg0ri400.gif)
 
 ## TODO
-添加 cocoapods 支持
+* 添加 cocoapods 支持
