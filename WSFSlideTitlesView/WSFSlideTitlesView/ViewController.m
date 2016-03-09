@@ -1,38 +1,43 @@
 //
-//  WSFSlideTitlesViewController.m
+//  ViewController.m
 //  WSFSlideTitlesView
 //
-//  Created by WangShengFeng on 16/3/7.
+//  Created by WangShengFeng on 3/7/16.
 //  Copyright © 2016年 WangShengFeng. All rights reserved.
 //
 
-#import "WSFSlideTitlesViewController.h"
+#import "ViewController.h"
 
 #import "WSFSlideTitlesView.h"
 
-@interface WSFSlideTitlesViewController () <WSFSlideTitlesViewDelegate>
+@interface ViewController () <WSFSlideTitlesViewDelegate>
 
 @property (nonatomic, weak) WSFSlideTitlesView *titlesView;
 
 @end
 
-@implementation WSFSlideTitlesViewController
+@implementation ViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    // 创建 WSFSlideTitlesView
     [self createWSFSlideTitlesView];
     
+    // 临时创建一个按钮修改选中按钮
     [self createSelectButton];
 }
 
 - (void)createWSFSlideTitlesView
 {
+    // 创建设置，最少需要内容和尺寸
+    // 其他样式自定义可查看 setting 头文件
     WSFSlideTitlesViewSetting *titlesSetting = [[WSFSlideTitlesViewSetting alloc] init];
     titlesSetting.titlesArr = @[ @"首页", @"消息", @"发现", @"我", ];
     titlesSetting.frame = CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, 30);
     
+    // 通过设置创建 WSFSlideTitlesView
     WSFSlideTitlesView *titlesView = [[WSFSlideTitlesView alloc] initWithSetting:titlesSetting];
     titlesView.delegate = self;
     self.titlesView = titlesView;
@@ -53,12 +58,17 @@
 
 - (void)selectButtonClick
 {
+    // 在外部控制内部选中按钮，传入 index 即可
     [self.titlesView selectButtonAtIndex:0];
 }
 
-- (void)slideTitlesView:(WSFSlideTitlesView *)titlesView didSelectButton:(UIButton *)button
+- (void)slideTitlesView:(WSFSlideTitlesView *)titlesView didSelectButton:(UIButton *)button atIndex:(NSUInteger)index
 {
-    //    NSLog(@"点击 -%@- 按钮", [button attributedTitleForState:UIControlStateNormal].string);
+    // 选中按钮切换通知外部
+    NSLog(@"点击 -第%zd个- -%@- 按钮", index, [button attributedTitleForState:UIControlStateNormal].string);
 }
+
+
+
 
 @end

@@ -10,11 +10,10 @@
 
 @interface WSFSlideTitlesView ()
 
-@property (nonatomic, weak) UIButton *selectedButton;
-@property (nonatomic, weak) UIView *lineView;
-
 @property (nonatomic, strong) WSFSlideTitlesViewSetting *setting;
 @property (nonatomic, strong) NSMutableArray *buttonArr;
+@property (nonatomic, weak) UIButton *selectedButton;
+@property (nonatomic, weak) UIView *lineView;
 
 @end
 
@@ -81,7 +80,7 @@
             if (0 == i) {
                 [self titlesBtnClick:titlesButton];
                 
-                //                 创建底部横线
+                // 创建底部横线
                 if (!setting.lineHidden) {
                     UIView *lineView;
                     if (setting.lineWidth) {
@@ -108,7 +107,9 @@
 
 - (void)selectButtonAtIndex:(NSUInteger)index
 {
-    [self titlesBtnClick:self.buttonArr[index]];
+    if (index < self.buttonArr.count) {
+        [self titlesBtnClick:self.buttonArr[index]];
+    }
 }
 
 - (void)titlesBtnClick:(UIButton *)button
@@ -133,7 +134,7 @@
     
     // 移动横线
     if (!self.setting.lineHidden) {
-        [UIView animateWithDuration:0.25
+        [UIView animateWithDuration:self.setting.animateDuration
                          animations:^{
                              if (self.setting.lineWidth) {
                                  self.lineView.frame = CGRectMake(self.lineView.frame.origin.x,
@@ -148,12 +149,18 @@
                          }];
     }
     
-    // 切换按钮
+    // 保存当前点击按钮
     self.selectedButton = button;
     
     // 执行代理
-    if ([self.delegate respondsToSelector:@selector(slideTitlesView:didSelectButton:)]) {
-        [self.delegate slideTitlesView:self didSelectButton:button];
+    NSUInteger index = 0;
+    for (int i = 0; i < self.buttonArr.count; ++i) {
+        if ([button isEqual:self.buttonArr[i]]) {
+            index = i;
+        }
+    }
+    if ([self.delegate respondsToSelector:@selector(slideTitlesView:didSelectButton:atIndex:)]) {
+        [self.delegate slideTitlesView:self didSelectButton:button atIndex:index];
     }
 }
 
@@ -161,6 +168,7 @@
 
 @implementation WSFSlideTitlesViewSetting
 
+// 懒加载默认样式
 - (NSArray *)selectedTitlesArr
 {
     if (!_selectedTitlesArr) {
@@ -239,6 +247,14 @@
         _lineBottomSpace = 1;
     }
     return _lineBottomSpace;
+}
+
+- (NSTimeInterval)animateDuration
+{
+    if (!_animateDuration) {
+        _animateDuration = 0.5;
+    }
+    return _animateDuration;
 }
 
 @end
