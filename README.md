@@ -31,7 +31,9 @@ self.titlesView = titlesView;
 * 内部切换按钮通知外部只需实现代理方法
 
 ```
-- (void)slideTitlesView:(WSFSlideTitlesView *)titlesView didSelectButton:(UIButton *)button atIndex:(NSUInteger)index
+- (void)slideTitlesView:(WSFSlideTitlesView *)titlesView
+        didSelectButton:(UIButton *)button
+                atIndex:(NSUInteger)index
 {
     NSLog(@"点击 -第%zd个- -%@- 按钮", index, [button attributedTitleForState:UIControlStateNormal].string);
 }
