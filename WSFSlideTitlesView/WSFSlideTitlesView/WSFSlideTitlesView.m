@@ -14,10 +14,19 @@
 @property (nonatomic, weak) UIView *lineView;
 
 @property (nonatomic, strong) WSFSlideTitlesViewSetting *setting;
+@property (nonatomic, strong) NSMutableArray *buttonArr;
 
 @end
 
 @implementation WSFSlideTitlesView
+
+- (NSMutableArray *)buttonArr
+{
+    if (!_buttonArr) {
+        _buttonArr = [NSMutableArray array];
+    }
+    return _buttonArr;
+}
 
 + (instancetype)slideTitlesViewWithSetting:(WSFSlideTitlesViewSetting *)setting
 {
@@ -39,6 +48,7 @@
         for (int i = 0; i < titlesCount; ++i) {
             // type 修改为 UIButtonTypeCustom 则没有高亮时的变化
             UIButton *titlesButton = [UIButton buttonWithType:UIButtonTypeSystem];
+            [self.buttonArr addObject:titlesButton];
             
             // 普通状态
             NSDictionary *attDict = @{
@@ -94,6 +104,11 @@
         }
     }
     return self;
+}
+
+- (void)selectButtonAtIndex:(NSUInteger)index
+{
+    [self titlesBtnClick:self.buttonArr[index]];
 }
 
 - (void)titlesBtnClick:(UIButton *)button

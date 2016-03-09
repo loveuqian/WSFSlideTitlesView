@@ -25,7 +25,7 @@
 + (instancetype)slideTitlesViewWithSetting:(WSFSlideTitlesViewSetting *)setting;
 - (instancetype)initWithSetting:(WSFSlideTitlesViewSetting *)setting;
 
-- (void)setlectButtonAtIndex:(NSUInteger)index;
+- (void)selectButtonAtIndex:(NSUInteger)index;
 
 @end
 
