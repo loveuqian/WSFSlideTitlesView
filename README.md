@@ -45,7 +45,7 @@ self.titlesView = titlesView;
 }
 ```
 
-* 外部控制内部切换按钮
+* 外部控制内部按钮切换
 
 ```
 [self.titlesView selectButtonAtIndex:0];
