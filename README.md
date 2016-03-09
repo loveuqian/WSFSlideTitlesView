@@ -2,6 +2,10 @@
 
 ## 自定义标题栏
 * 因为本人公司项目中多处用到了这种标题栏，于是就把写好的代码封装起来，方便多次复用
+* 原理为通过一个保存好样式参数的 setting 对象创建一个 view
+* setting 对象内有多种属性可自定义，包括字体样式，横线样式等等
+* 按钮切换时通过代理方法通知控制器
+* 控制器亦可通过外部接口修改选中按钮
 
 ## 使用方法
 * 将 WSFSlideTitlesView 拖入项目中
@@ -28,7 +32,7 @@ self.titlesView = titlesView;
 [self.view addSubview:titlesView];
 ```
 
-* 内部切换按钮通知外部只需实现代理方法
+* 内部切换按钮通知外部
 
 ```
 - (void)slideTitlesView:(WSFSlideTitlesView *)titlesView
@@ -49,4 +53,5 @@ self.titlesView = titlesView;
 ![](http://ww3.sinaimg.cn/large/0060lm7Tgw1f1r1lkdim5g30fg0ri400.gif)
 
 ## TODO
+* 增加更多样式自定义属性
 * 添加 cocoapods 支持
