@@ -62,7 +62,9 @@
     [self.titlesView selectButtonAtIndex:0];
 }
 
-- (void)slideTitlesView:(WSFSlideTitlesView *)titlesView didSelectButton:(UIButton *)button atIndex:(NSUInteger)index
+- (void)slideTitlesView:(WSFSlideTitlesView *)titlesView
+        didSelectButton:(UIButton *)button
+                atIndex:(NSUInteger)index
 {
     // 选中按钮切换通知外部
     NSLog(@"点击 -第%zd个- -%@- 按钮", index, [button attributedTitleForState:UIControlStateNormal].string);
